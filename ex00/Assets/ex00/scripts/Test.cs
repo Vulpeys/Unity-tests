@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour {
-	public int souffle = 5;
-	public float targetTime = 1.0f;
+public class ex00 : MonoBehaviour {
+	private int souffle = 5;
+	private float targetTime = 1.0f;
 	void Start()
 	{
 		
