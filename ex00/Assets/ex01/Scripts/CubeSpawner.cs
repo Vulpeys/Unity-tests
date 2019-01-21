@@ -8,28 +8,37 @@ public class CubeSpawner : MonoBehaviour {
 	public GameObject d;
 	private float targetTime = 0.0f;
 	private float RandomSpawnValue;
-	private float RandomTimeValue = 0;
+	private float RandomTimeValueA = 0;
+	private float RandomTimeValueS = 0;
+	private float RandomTimeValueD = 0;
 	private GameObject currentA;
 	private GameObject currentS;
 	private GameObject currentD;
-	void Start () {	
+	void Start () {
+
 	}
 	void Update () {
-		targetTime += Time.deltaTime;
-		RandomTimeValue -= Time.deltaTime;
-		if (targetTime >= 1)
-		{
-			RandomSpawnValue = Random.Range(0.0f, 3.0f);
-			if (RandomTimeValue <= 0){
-				if(RandomSpawnValue <= 1 && !currentA)
-						currentA = GameObject.Instantiate(a);
-				else if (RandomSpawnValue > 1 && RandomSpawnValue <= 2 && !currentS)
-						currentS = GameObject.Instantiate(s);
-				else if (RandomSpawnValue > 2 && !currentD)
-						currentD = GameObject.Instantiate(d);
-				RandomTimeValue = Random.Range(0.0f, 2.0f);
+		RandomTimeValueA -= Time.deltaTime;
+		RandomTimeValueS -= Time.deltaTime;
+		RandomTimeValueD -= Time.deltaTime;
+		RandomSpawnValue = Random.Range(0.0f, 3.0f);
+		if (RandomTimeValueA <= 0){
+			if(RandomSpawnValue <= 1 && !currentA){
+					RandomTimeValueA = Random.Range(0.0f, 2.0f);
+					currentA = GameObject.Instantiate(a);
 			}
-			targetTime = 0.0f;
+		}
+		else if (RandomTimeValueS <= 0){
+			if (RandomSpawnValue > 1 && RandomSpawnValue <= 2 && !currentS){
+				RandomTimeValueS = Random.Range(0.0f, 2.0f);
+				currentS = GameObject.Instantiate(s);
+			}
+		}
+		else if (RandomTimeValueD <= 0){
+			if (RandomSpawnValue > 2 && !currentD){
+				currentD = GameObject.Instantiate(d);
+				RandomTimeValueD = Random.Range(0.0f, 2.0f);
+			}
 		}
 	}
 }
