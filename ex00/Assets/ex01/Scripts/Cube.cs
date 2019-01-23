@@ -23,7 +23,7 @@ public class Cube : MonoBehaviour {
 			if (transform.position.y <= -2.97 + 0.30 && transform.position.y >= -2.97 - 0.30)
 				Debug.Log("gg");
 			Debug.Log(transform.position.y - -2.97);
-			Destroy(this.gameObject);
+			Destroy(this.gameObject );
 		}
 		if (transform.name.Contains("D") && Input.GetKeyDown("d"))
 		{			
