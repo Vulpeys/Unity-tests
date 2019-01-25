@@ -21,7 +21,7 @@ public class Ball : MonoBehaviour {
 				club.distance -= 0.2f;
 			if (club.distance < 0)
 				club.distance += 0.2f;
-			if (club.distance <= 0.1f && club.distance >= -0.1f)
+			if (club.distance <= 0.2f && club.distance >= -0.2f)
 			{
 				club.hit = false;
 				travel = false;	
